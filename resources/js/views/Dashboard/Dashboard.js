@@ -1,6 +1,6 @@
 import React from 'react';
 import auth from '../../auth/Auth';
-import {Row, Col, Card} from "antd";
+import {Row, Col, Card, Button} from "antd";
 
 export class Dashboard extends React.Component {
     constructor(props) {
@@ -9,17 +9,17 @@ export class Dashboard extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={{paddingTop:'80px'}}>
                 <Row>
                     <Col md={{span: 8, push: 8}}>
-                        <Card title={"Welcome User"}>
+                        <Card title={"Welcome User"} bordered={false}>
                             <p>User Dashboard</p>
-                            <button onClick={() => {
+                            <Button onClick={() => {
                                 auth.logout(() => {
                                     this.props.history.push('/login');
                                 })
                             }}>Logout
-                            </button>
+                            </Button>
                         </Card>
                     </Col>
                 </Row>
